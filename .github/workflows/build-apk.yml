@@ -25,7 +25,9 @@ jobs:
       - name: Create Android project
         run: |
           cd the_voice_news_android
-          flutter create --platforms=android .
+          flutter create --platforms=android
+          sed -i '/<application/i\    <uses-permission android:name="android.permission.INTERNET" />' android/app/src/main/AndroidManifest.xml
+
 
       - name: Install dependencies
         run: |
